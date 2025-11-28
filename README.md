@@ -80,12 +80,12 @@ A modern, automated daily report generator for mail server operations with Googl
 4. Deploy:
    ```bash
    # Set base path for GitHub Pages (replace with your repo name)
-   $env:VITE_BASE_PATH = '/your-repo-name'
+   $env:VITE_BASE_PATH = '/ReportManagement'
    npm run deploy
    Remove-Item Env:VITE_BASE_PATH
    ```
 
-5. Access your app at: `https://your-username.github.io/your-repo-name`
+5. Access your app at: `https://mr-neo1.github.io/ReportManagement`
 
 ## Usage
 
@@ -137,4 +137,3 @@ Base Folder/
 ## License
 
 MIT
-
