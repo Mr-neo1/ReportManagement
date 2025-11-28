@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist"
+    "deploy": "vite build && (if exist privacy-policy.html copy privacy-policy.html dist\\privacy-policy.html) && gh-pages -d dist"
   },
   "keywords": [
     "mail",
