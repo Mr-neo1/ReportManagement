@@ -1017,26 +1017,6 @@ export default function App() {
             Save Draft
           </button>
         </div>
-
-        <div
-          className={`${
-            darkMode ? 'bg-gray-800 border-gray-700' : 'bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200'
-          } border-2 rounded-2xl p-6`}
-        >
-          <h3 className={`font-bold mb-3 text-lg ${darkMode ? 'text-white' : 'text-blue-900'}`}>💡 Features:</h3>
-          <ul className={`text-sm ${darkMode ? 'text-gray-300' : 'text-blue-800'} space-y-2`}>
-            <li>• <strong>Validation:</strong> Warns if end time is before start time</li>
-            <li>• <strong>Auto-calculate:</strong> Runtime duration automatically calculated</li>
-            <li>• <strong>Screenshots:</strong> Drag to reorder, click to preview, hover to delete</li>
-            <li>• <strong>Bulk upload:</strong> Progress indicator shows upload status</li>
-            <li>• <strong>Dark mode:</strong> Toggle with button or Ctrl+D</li>
-            <li>• <strong>Collapsible sections:</strong> Click section headers to collapse/expand</li>
-            <li>• <strong>Quick navigation:</strong> Use menu button (top-right) to jump to sections</li>
-            <li>• <strong>Keyboard shortcuts:</strong> Ctrl+S to save draft locally</li>
-            <li>• <strong>Progress indicator:</strong> Shows completion percentage in header</li>
-            <li>• <strong>Mobile responsive:</strong> Optimized for all screen sizes</li>
-          </ul>
-        </div>
       </div>
     </div>
   );
