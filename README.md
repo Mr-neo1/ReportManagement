@@ -25,67 +25,40 @@ A modern, automated daily report generator for mail server operations with Googl
 - Progress indicator
 - Mobile responsive
 
-## Setup Instructions
+## Quick Start
 
-### 1. Google Cloud Console Setup
+### 1. Install Dependencies
 
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select an existing one
-3. Enable the following APIs:
-   - **Google Drive API**
-   - **Google Picker API** (optional, for folder picker)
-4. Go to **Credentials** → **Create Credentials** → **OAuth 2.0 Client ID**
-   - Application type: **Web application**
-   - Name: Mail Server Report Generator
-   - Authorized JavaScript origins:
-     - `http://localhost:5173` (for local development)
-     - `https://your-username.github.io` (for GitHub Pages)
-   - Authorized redirect URIs:
-     - `http://localhost:5173`
-     - `https://your-username.github.io/your-repo-name`
-5. Copy the **Client ID** (ends with `.apps.googleusercontent.com`)
-6. (Optional) Copy the **App ID** if using Google Picker
+```bash
+npm install
+```
 
-### 2. Local Development
+### 2. Configure Environment
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+Create a `.env` file in the root directory:
 
-3. Create a `.env` file in the root directory:
-   ```env
-   VITE_GOOGLE_CLIENT_ID=your-client-id-here.apps.googleusercontent.com
-   VITE_GOOGLE_APP_ID=your-app-id-here
-   ```
+```env
+VITE_GOOGLE_CLIENT_ID=your-client-id-here.apps.googleusercontent.com
+VITE_GOOGLE_APP_ID=your-app-id-here
+```
 
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
+### 3. Run Development Server
 
-5. Open `http://localhost:5173` in your browser
+```bash
+npm run dev
+```
 
-### 3. GitHub Pages Deployment
+Open `http://localhost:5173` in your browser.
 
-1. Push your code to GitHub
-2. Set up GitHub Pages:
-   - Go to repository **Settings** → **Pages**
-   - Source: **GitHub Actions** or **Deploy from a branch**
-   - If using branch: select `gh-pages` branch
+### 4. Deploy to GitHub Pages
 
-3. Update `.env` with your GitHub Pages URL in the OAuth settings
+```bash
+$env:VITE_BASE_PATH = '/ReportManagement'
+npm run deploy
+Remove-Item Env:VITE_BASE_PATH
+```
 
-4. Deploy:
-   ```bash
-   # Set base path for GitHub Pages (replace with your repo name)
-   $env:VITE_BASE_PATH = '/ReportManagement'
-   npm run deploy
-   Remove-Item Env:VITE_BASE_PATH
-   ```
-
-5. Access your app at: `https://mr-neo1.github.io/ReportManagement`
+Access at: `https://mr-neo1.github.io/ReportManagement`
 
 ## Usage
 
