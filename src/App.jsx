@@ -399,12 +399,12 @@ export default function App() {
 
       // Generate document
       const blob = generateWordDocBlob();
-      const cyclePart = sanitizeCycleName(reportCycle);
+      const cyclePart = sanitizeCycleName(reportCycle || 'Default');
       const filename = `Mail_Report_${reportDate}_${cyclePart}.doc`;
 
       // Upload to Drive
       setDriveMessage({ type: 'info', text: 'Uploading report to Drive...' });
-      const result = await uploadFileToDrive(blob, filename, folderStructure.cycleFolderId);
+      const result = await uploadFileToDrive(blob, filename, folderStructure.targetFolderId);
 
       setDriveMessage({
         type: 'success',

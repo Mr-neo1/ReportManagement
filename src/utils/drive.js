@@ -205,28 +205,25 @@ export const createReportFolderStructure = async (reportDate, reportCycle) => {
 
   const dateObj = new Date(reportDate);
   const year = dateObj.getFullYear().toString();
+  const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
   const dateFolderName = reportDate; // Format: YYYY-MM-DD
-  const cycleFolderName = reportCycle || 'Default';
-  
-  // Sanitize folder names (remove invalid characters)
-  const sanitize = (name) => name.replace(/[<>:"/\\|?*]/g, '_').trim();
-  const safeCycleName = sanitize(cycleFolderName);
 
   try {
     // Create/find Year folder
     const yearFolderId = await findOrCreateFolder(year, baseFolderId);
 
-    // Create/find Date folder (YYYY-MM-DD)
-    const dateFolderId = await findOrCreateFolder(dateFolderName, yearFolderId);
+    // Create/find Month folder (MM)
+    const monthFolderId = await findOrCreateFolder(month, yearFolderId);
 
-    // Create/find Cycle folder
-    const cycleFolderId = await findOrCreateFolder(safeCycleName, dateFolderId);
+    // Create/find Date folder (YYYY-MM-DD)
+    const dateFolderId = await findOrCreateFolder(dateFolderName, monthFolderId);
 
     return {
       yearFolderId,
+      monthFolderId,
       dateFolderId,
-      cycleFolderId,
-      path: `${getBaseFolderName()}/${year}/${dateFolderName}/${safeCycleName}`,
+      targetFolderId: dateFolderId,
+      path: `${getBaseFolderName()}/${year}/${month}/${dateFolderName}`,
     };
   } catch (error) {
     console.error('Error creating folder structure:', error);
